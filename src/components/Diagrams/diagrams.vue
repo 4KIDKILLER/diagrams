@@ -17,10 +17,11 @@ onMounted(() => {
   const webkitDep:any = {
     nodes: [
       {
-        name: "AnalyserNode",
         value: 1,
         category: 4,
         symbolSize: 40,
+        name: "AnalyserNode",
+        symbol:'image://src/assets/image/20240814205710.jpg',
       },
       {
         name: "AudioNode",
