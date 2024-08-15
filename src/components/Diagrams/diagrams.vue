@@ -3,9 +3,9 @@
 </template>
 
 <script setup lang="ts">
-import * as echarts from "echarts";
 import { onMounted } from "vue";
-onMounted(() => {
+import * as echarts from "echarts";
+onMounted(async () => {
   const chartDom = document.getElementById("chart-box");
   if (chartDom) {
     chartDom.style.width = `${window.innerWidth}px`;
@@ -14,14 +14,22 @@ onMounted(() => {
   const myChart = echarts.init(chartDom);
   let option: any = {};
   myChart.showLoading();
-  const webkitDep:any = {
+  const webkitDep: any = {
     nodes: [
       {
         value: 1,
         category: 4,
         symbolSize: 40,
+        itemStyle: {
+          opacity: 0.1,
+          borderWidth: 2,
+          borderCap: "round",
+          borderJoin: "bevel",
+          borderType: "solid",
+        },
+        symbolClip: true,
         name: "AnalyserNode",
-        symbol:'image://src/assets/image/20240814205710.jpg',
+        symbol: "image://src/assets/image/20240814205710.jpg",
       },
       {
         name: "AudioNode",
@@ -103,54 +111,6 @@ onMounted(() => {
         source: 1,
         target: 2,
       },
-      {
-        source: 2,
-        target: 3,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
-      {
-        source: 3,
-        target: 2,
-      },
     ],
     categories: [
       {
@@ -191,7 +151,7 @@ onMounted(() => {
           formatter: "{b}",
         },
         draggable: true,
-        data: webkitDep.nodes.map(function (node:any, idx:any) {
+        data: webkitDep.nodes.map(function (node: any, idx: any) {
           node.id = idx;
           return node;
         }),
